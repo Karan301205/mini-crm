@@ -644,9 +644,22 @@ app.patch("/leads/:id", async (req, res) => {
 
 app.get("/lead-count", async (req, res) => {
 
-  const count = await prisma.lead.count();
+  try {
 
-  res.json({ count });
+    const count =
+      await prisma.lead.count();
+
+    res.json({ count });
+
+  } catch (error) {
+
+    console.error(error);
+
+    res.status(500).json({
+      error: "Failed to count leads",
+    });
+
+  }
 
 });
 
