@@ -158,13 +158,6 @@ cd server
 npm install
 ```
 
-Create `.env`:
-
-```env
-DATABASE_URL=your_neon_database_url
-JWT_SECRET=your_secret_key
-```
-
 Run migrations:
 
 ```bash
@@ -226,7 +219,7 @@ Select: Entire Document → CSV → Publish
 **Step 3** — Copy the Sheet ID from the URL:
 
 ```
-https://docs.google.com/spreadsheets/d/SHEET_ID/edit
+https://docs.google.com/spreadsheets/d/1FWKiMJvy9Yq3Dks1Hh49PBllExlbdPsyfccxzWWw-5U/edit?usp=sharing
 ```
 
 **Step 4** — Paste the Sheet ID into the backend import route and trigger import from the Admin panel.
@@ -242,13 +235,6 @@ https://docs.google.com/spreadsheets/d/SHEET_ID/edit
 | Build Command | `npm install && npx prisma generate` |
 | Start Command | `node index.js` |
 
-Environment variables:
-
-```env
-DATABASE_URL=your_neon_database_url
-JWT_SECRET=your_secret_key
-```
-
 Post-deploy:
 
 ```bash
@@ -261,7 +247,7 @@ node prisma/seed.js
 Create `.env`:
 
 ```env
-VITE_API_URL=https://your-render-backend-url.onrender.com
+https://mini-crm-seven-theta.vercel.app/login
 ```
 
 Deploy from the `client/` directory.
