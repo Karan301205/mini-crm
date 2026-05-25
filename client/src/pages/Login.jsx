@@ -149,6 +149,30 @@ export default function Login() {
 
         </form>
 
+        <div className="mt-8 border-t border-gray-100 pt-6">
+          <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 text-center">Demo Credentials (Click to Auto-fill)</p>
+          <div className="grid grid-cols-2 gap-3">
+            <button
+              type="button"
+              onClick={() => setFormData({ email: "admin@crm.com", password: "password123" })}
+              className="p-3.5 bg-gray-50 hover:bg-blue-50/50 hover:border-blue-200 border border-gray-100 rounded-2xl text-left transition-all duration-200 cursor-pointer group"
+            >
+              <p className="text-xs font-extrabold text-blue-600 group-hover:text-blue-700">Administrator</p>
+              <p className="text-[10px] text-gray-500 mt-1.5 font-semibold font-mono truncate">admin@crm.com</p>
+              <p className="text-[9px] text-gray-400 mt-0.5 font-mono">Pass: password123</p>
+            </button>
+            <button
+              type="button"
+              onClick={() => setFormData({ email: "counselor@crm.com", password: "password123" })}
+              className="p-3.5 bg-gray-50 hover:bg-green-50/50 hover:border-green-200 border border-gray-100 rounded-2xl text-left transition-all duration-200 cursor-pointer group"
+            >
+              <p className="text-xs font-extrabold text-green-600 group-hover:text-green-700">Counselor</p>
+              <p className="text-[10px] text-gray-500 mt-1.5 font-semibold font-mono truncate">counselor@crm.com</p>
+              <p className="text-[9px] text-gray-400 mt-0.5 font-mono">Pass: password123</p>
+            </button>
+          </div>
+        </div>
+
       </div>
 
     </div>
