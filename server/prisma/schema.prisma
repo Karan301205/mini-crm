@@ -1,0 +1,63 @@
+generator client {
+  provider     = "prisma-client-js"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  ADMIN
+  COUNSELOR
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String
+  role      Role
+
+  leads     Lead[]
+  followUps FollowUp[]
+
+  createdAt DateTime @default(now())
+}
+
+model Lead {
+  id          String   @id @default(cuid())
+
+  name        String
+  phone       String
+  email       String   @unique
+
+  course      String
+  stage       String
+  priority    String
+
+  counselorId String?
+  counselor   User?    @relation(fields: [counselorId], references: [id])
+
+  followUps   FollowUp[]
+
+  createdAt   DateTime @default(now())
+}
+
+model FollowUp {
+  id           String   @id @default(cuid())
+
+  title        String
+  comment      String
+  status       String
+
+  leadId       String
+  lead         Lead     @relation(fields: [leadId], references: [id])
+
+  counselorId  String
+  counselor    User     @relation(fields: [counselorId], references: [id])
+
+  scheduledAt  DateTime?
+
+  createdAt    DateTime @default(now())
+}
